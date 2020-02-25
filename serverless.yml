@@ -27,4 +27,4 @@ functions:
     events:
       - http:
           method: get
-          path: shout
+          path: shout/{key}
