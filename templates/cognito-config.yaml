@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Resources:
+  SandboxUserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      AdminCreateUserConfig:
+        AllowAdminCreateUserOnly: true
+      UsernameAttributes:
+        - email
+
+  SandboxUserPoolClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      ClientName: shout-app
+      GenerateSecret: false
+      UserPoolId: !Ref SandboxUserPool
+      ExplicitAuthFlows:
+        - ADMIN_NO_SRP_AUTH
+
+Outputs:
+  SandboxUserPoolId:
+    Value:
+      Ref: SandboxUserPool
+
+  SandboxClientId:
+    Value:
+      Ref: SandboxUserPoolClient
+
+
+
