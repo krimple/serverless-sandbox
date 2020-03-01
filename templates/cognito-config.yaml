@@ -18,6 +18,10 @@ Resources:
       ExplicitAuthFlows:
         - ADMIN_NO_SRP_AUTH
 
+#  SandboxIdentityPool:
+#    Type: AWS::Cognito::IdentityPool
+
+
 Outputs:
   SandboxUserPoolId:
     Value:

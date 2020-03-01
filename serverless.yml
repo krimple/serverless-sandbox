@@ -1,9 +1,6 @@
 service:
   name: shout-it
 
-resources:
-  - ${file(templates/cognito-config.yaml)}
-
 custom:
   webpack:
     webpackConfig: ./webpack.config.js
@@ -29,4 +26,6 @@ functions:
       - http:
           method: get
           path: shout/{key}
+          cors: true
+          authorizer: aws_iam
 
